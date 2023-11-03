@@ -1,15 +1,30 @@
-Welcome to your new dbt project!
+# DBT project 
+ Welcome to your new dbt (Data Build Tool) project!
+
+## PRATICAL SECTION
+
+ * Development Environment Setup
+ * Setting up Snowflake
+ * Fundamentals of dbt (Data Build Tool)
+ * Analytics Engineering
+ * Normalization
+ * Slowly Changing Dimensions
+ * CTEs
+ 
+The following features will be covered;
+
+ * dbt Models
+ * dbt Materializations
+ * dbt Tests
+ * dbt Documentation
+ * dbt Sources, Seeds, Snapshots
+ * dbt Hooks and Operations
+ * Jinja and Macros
+ * Analyses, Exposures 
+ * dbt Seeds
 
 ### Using the starter project
 
 Try running the following commands:
 - dbt run
 - dbt test
-
-
-### Resources:
-- Learn more about dbt [in the docs](https://docs.getdbt.com/docs/introduction)
-- Check out [Discourse](https://discourse.getdbt.com/) for commonly asked questions and answers
-- Join the [chat](https://community.getdbt.com/) on Slack for live discussions and support
-- Find [dbt events](https://events.getdbt.com) near you
-- Check out [the blog](https://blog.getdbt.com/) for the latest news on dbt's development and best practices

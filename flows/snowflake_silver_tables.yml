@@ -15,7 +15,33 @@ tasks:
       docker:
         image: ghcr.io/kestra-io/dbt-snowflake:latest
       profiles: |
-        snowflake_brz:
+        snowflake:
+          outputs:
+            slv:
+              account: your-account
+              database: AIRBNB
+              user: user
+              password: password
+              role: ACCOUNTADMIN
+              schema: SILVER
+              threads: 2
+              type: snowflake
+              warehouse: COMPTE_WH
+          target: slv
+      commands:
+        - dbt deps
+        - dbt run --select models/listings_cleansed.sql 
+        - dbt run --select models/reviews_cleansed.sql 
+        - dbt run --select models/hosts_cleansed.sql 
+
+    - id: dbt-seed
+      type: io.kestra.plugin.dbt.cli.Seed
+      runner: DOCKER
+      dbtPath: /usr/local/bin/dbt
+      docker:
+        image: ghcr.io/kestra-io/dbt-snowflake:latest
+      profiles: |
+        snowflake_slv:
           outputs:
             dev:
               account: your-account
@@ -28,9 +54,3 @@ tasks:
               type: snowflake
               warehouse: COMPTE_WH
           target: dev
-      commands:
-        - dbt deps
-        - dbt run --select models/listings_cleansed.sql 
-        - dbt run --select models/reviews_cleansed.sql 
-        - dbt run --select models/hosts_cleansed.sql 
-        - dbt seed

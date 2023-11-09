@@ -1,3 +1,7 @@
+{{ config(
+  materialized = 'table',
+) }}
+
 WITH raw_hosts AS (
     SELECT
         *

@@ -23,7 +23,7 @@ tasks:
               user: user
               password: password
               role: ACCOUNTADMIN
-              schema: BRONZE
+              schema: SILVER
               threads: 2
               type: snowflake
               warehouse: COMPTE_WH

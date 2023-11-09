@@ -1,3 +1,7 @@
+{{ config(
+  materialized = 'table',
+) }}
+
 WITH raw_listings AS (
         SELECT * FROM {{ source('airbnb', 'listings') }}
 )

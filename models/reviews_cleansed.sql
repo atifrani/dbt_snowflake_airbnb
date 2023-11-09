@@ -1,3 +1,7 @@
+{{ config(
+  materialized = 'table',
+) }}
+
 WITH raw_reviews AS (
     SELECT
         *

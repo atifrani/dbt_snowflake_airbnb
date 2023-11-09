@@ -33,3 +33,4 @@ tasks:
         - dbt run --select models/listings_cleansed.sql 
         - dbt run --select models/reviews_cleansed.sql 
         - dbt run --select models/hosts_cleansed.sql 
+        - dbt seed

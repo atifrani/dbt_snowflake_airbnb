@@ -29,6 +29,7 @@ tasks:
               warehouse: COMPTE_WH
           target: slv
       commands:
+        - dbt clean
         - dbt deps
         - dbt run --select models/listings_cleansed.sql 
         - dbt run --select models/reviews_cleansed.sql 

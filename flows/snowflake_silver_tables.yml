@@ -1,0 +1,35 @@
+id: snowflake_silver_tables
+namespace: dev
+
+tasks:
+  - id: dbtCore
+    type: io.kestra.core.tasks.flows.WorkingDirectory
+    tasks:
+    - id: cloneRepository
+      type: io.kestra.plugin.git.Clone
+      url: https://github.com/atifrani/dbt_snowflake_airbnb.git
+      branch: main
+
+    - id: silver_tables
+      type: io.kestra.plugin.dbt.cli.DbtCLI
+      docker:
+        image: ghcr.io/kestra-io/dbt-snowflake:latest
+      profiles: |
+        snowflake_brz:
+          outputs:
+            dev:
+              account: your-account
+              database: AIRBNB
+              user: user
+              password: password
+              role: ACCOUNTADMIN
+              schema: BRONZE
+              threads: 2
+              type: snowflake
+              warehouse: COMPTE_WH
+          target: dev
+      commands:
+        - dbt deps
+        - dbt run --select models/listings_cleaned.sql 
+        - dbt run --select models/reviews_cleaned.sql 
+        - dbt run --select models/hosts_cleaned.sql 

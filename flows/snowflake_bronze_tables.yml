@@ -1,4 +1,4 @@
-id: airbnb_analytics_engineer
+id: snowflake_bronze_tables
 namespace: dev
 
 tasks:

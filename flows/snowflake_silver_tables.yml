@@ -30,6 +30,6 @@ tasks:
           target: dev
       commands:
         - dbt deps
-        - dbt run --select models/listings_cleaned.sql 
-        - dbt run --select models/reviews_cleaned.sql 
-        - dbt run --select models/hosts_cleaned.sql 
+        - dbt run --select models/listings_cleansed.sql 
+        - dbt run --select models/reviews_cleansed.sql 
+        - dbt run --select models/hosts_cleansed.sql 

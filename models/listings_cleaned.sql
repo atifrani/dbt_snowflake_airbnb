@@ -1,4 +1,3 @@
--- import raw_listings
 WITH raw_listings AS (
         SELECT * FROM {{ source('airbnb', 'listings') }}
 )
@@ -7,9 +6,12 @@ SELECT
    listing_url,
    name AS listing_name,
    room_type,
-   minimum_nights,
+   CASE
+    WHEN minimum_nights = 0 THEN 1
+    ELSE minimum_nights
+   END AS minimum_nights,
    host_id,
-   price AS price_str,
+   REPLACE( price, '$' ) :: NUMBER( 10, 2) AS price,
    created_at,
    updated_at
 FROM raw_listings

@@ -5,8 +5,33 @@ The data build tool (dbt) is the T in ELT process, hence the "transform" in Extr
 If you are new to cloud data warehouses ans Snowflake you might want to read the article 
 If you are new to ELT and DBT you might want to read the article 
 
-## Setting up Snowflake
+## Setting up Snowflake trial account
 
+A Snowflake trial account lets you evaluate/test Snowflake’s with no cost or contractual obligations. 
+You can sign up for a free trial using the self-service form https://signup.snowflake.com/
+
+ * step 1: Fill the self-service form on Snowflake website
+
+Enter the details (First Name, Last Name, Valid Email Address and Company) in the Sign Up form. If you are not working or do not wish to share the information of Company you are working, you can enter any random name or just mention ‘Student’.
+
+ * step 2: Select Snowflake Edition, Platform and Region
+
+After entering standard information on the first page of the form, you need to select the following which determines the features you can use during the trial and click GET STARTED.
+
+Snowflake Edition : Standard
+Cloud Platform : AWS
+Geographic Deployment Region : eu-west-1
+
+ * step 3:
+ After completing the step 2, you will receive a message stating that an email has been sent to activate your account.
+ Navigate to your email and click on CLICK TO ACTIVATE. You will also find the URL to access your Snowflake account in the email.
+
+ * step 4: Create Username and Password
+Once you activate your account, you will be prompted to choose a Username and Password to get started. These credentials are required to login every time you need to access Snowflake.
+After successfully creating a Username and password, you will be asked to sign in. Sign in using the credentials created.
+
+You can cancel a trial account at any time by contacting Snowflake Support and requesting the account to be canceled from https://community.snowflake.com/s/article/How-To-Submit-a-Support-Case-in-Snowflake-Lodge.
+ 
 ## DBT Core local installation 
 
 You can install dbt Core on the command line by using one of these methods:
@@ -134,10 +159,16 @@ models:
           materialized: view
 ```
 
+To test the connection to Snowflake data platform run:
+
+```
+dbt debug
+```
 
 ### Write your first dbt models
 
-## Kestra installation
+The top level of a dbt workflow is the project. A project is a directory of a .yml file (the project configuration) and either .sql or .py files (the models). The project file tells dbt the project context, and the models let dbt know how to build a specific data set. For more details on projects, refer to https://docs.getdbt.com/docs/build/projects
+
 
 ### Write your first Kestra flow
 

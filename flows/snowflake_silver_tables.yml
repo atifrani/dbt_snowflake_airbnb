@@ -26,7 +26,7 @@ tasks:
               schema: SILVER
               threads: 2
               type: snowflake
-              warehouse: COMPTE_WH
+              warehouse: COMPUTE_WH
           target: slv
       commands:
         - dbt clean
@@ -42,7 +42,7 @@ tasks:
       docker:
         image: ghcr.io/kestra-io/dbt-snowflake:latest
       profiles: |
-        snowflake_slv:
+        snowflake:
           outputs:
             dev:
               account: your-account
@@ -53,5 +53,5 @@ tasks:
               schema: SILVER
               threads: 2
               type: snowflake
-              warehouse: COMPTE_WH
-          target: dev
+              warehouse: COMPUTE_WH
+          target: slv

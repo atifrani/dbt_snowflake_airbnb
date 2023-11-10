@@ -6,12 +6,11 @@ WITH
 l AS (
     SELECT
         *
-    FROM
-        {{ ref('listings_cleansed') }}
+    FROM {{ source('airbnb', 'listings_cleansed') }}
 ),
 h AS (
     SELECT * 
-    FROM {{ ref('hosts_cleansed') }}
+    FROM {{ source('airbnb', 'hosts_cleansed') }}
 )
 
 SELECT 

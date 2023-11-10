@@ -1,7 +1,7 @@
 version: 2
 
 sources:
-  - name: airbnb
+  - name: brz
     schema: bronze
     tables:
       - name: listings
@@ -13,3 +13,17 @@ sources:
       - name: reviews
         identifier: raw_reviews
 
+  - name: slv
+    schema: silver
+    tables:
+      - name: listings_cleansed
+        identifier: listings_cleansed
+
+      - name: hosts_cleansed
+        identifier: listings_cleansed
+        
+      - name: reviews_cleansed
+        identifier: listings_cleansed
+
+      - name: full_moon_dates
+        identifier: seed_full_moon_dates

@@ -6,7 +6,7 @@ WITH raw_reviews AS (
     SELECT
         *
     FROM
-        {{ source('airbnb', 'reviews') }}
+        {{ source('slv', 'reviews') }}
 )
 SELECT
     listing_id,

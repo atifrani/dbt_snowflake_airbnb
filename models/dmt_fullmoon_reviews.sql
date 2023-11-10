@@ -3,10 +3,10 @@
 ) }}
 
 WITH fct_reviews AS (
-    SELECT * FROM {{ source('airbnb', 'reviews_cleansed') }}
+    SELECT * FROM {{ source('slv', 'reviews_cleansed') }}
 ),
 full_moon_dates AS (
-    SELECT * FROM  {{ source('airbnb', 'full_moon_dates') }}
+    SELECT * FROM  {{ source('slv', 'full_moon_dates') }}
 )
 
 SELECT

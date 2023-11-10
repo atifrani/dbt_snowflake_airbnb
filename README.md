@@ -169,8 +169,36 @@ dbt debug
 
 The top level of a dbt workflow is the project. A project is a directory of a .yml file (the project configuration) and either .sql or .py files (the models). The project file tells dbt the project context, and the models let dbt know how to build a specific data set. For more details on projects, refer to https://docs.getdbt.com/docs/build/projects
 
+This first dbt model requires the Snowflake provided snowflake_sample_data database.
+If you don't have this database already in your account  please add it by following these instructions: https://docs.snowflake.net/manuals/user-guide/sample-data-using.html
+
+Let's create simple dbt models that retrieve few columns of the table snowflake_sample_data.tpch_sf1.customer.
+
+```
+WITH customer_cte as (
+	SELECT *
+
+	FROM snowflake_sample_data.tpch_sf1.customer
+)
+
+SELECT
+name as customer_name,
+adress as customer_adresse,
+phone as customer_phone
+from 
+customer_cte
+```
+
+Let's create customer_sample.sql sql file within models folder (models/customer_sample.sql). 
+You can run the model in your dbt project by executing:
+
+``` 
+dbt run
+```
 
 ### Write your first Kestra flow
+
+
 
 ## PRATICAL SECTION
 

@@ -1,0 +1,35 @@
+id: snowflake_gold_tables
+namespace: dev
+
+tasks:
+  - id: dbtCore
+    type: io.kestra.core.tasks.flows.WorkingDirectory
+    tasks:
+    - id: cloneRepository
+      type: io.kestra.plugin.git.Clone
+      url: https://github.com/atifrani/dbt_snowflake_airbnb.git
+      branch: main
+    
+    - id: gold_tables
+      type: io.kestra.plugin.dbt.cli.DbtCLI
+      docker:
+        image: ghcr.io/kestra-io/dbt-snowflake:latest
+      profiles: |
+        snowflake:
+          outputs:
+            slv:
+              account: your-account
+              database: AIRBNB
+              user: user
+              password: password
+              role: ACCOUNTADMIN
+              schema: SILVER
+              threads: 2
+              type: snowflake
+              warehouse: COMPUTE_WH
+          target: slv
+      commands:
+        - dbt clean
+        - dbt deps
+        - dbt run --select models/dmt_listings_hosts.sql
+        - dbt run --select models/dmt_fullmoon_reviews.sql

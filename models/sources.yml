@@ -23,7 +23,7 @@ sources:
         identifier: listings_cleansed
         
       - name: reviews_cleansed
-        identifier: listings_cleansed
+        identifier: reviews_cleansed
 
       - name: full_moon_dates
         identifier: seed_full_moon_dates

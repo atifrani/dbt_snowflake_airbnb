@@ -198,8 +198,17 @@ dbt run
 
 ### Write your first Kestra flow
 
+You might want your dbt code to be run automatically in a CI/CD pipeline as part of DataOps.
 
+
+When committing this change, the CI/CD pipeline should be automatically triggered. If all environment variables are set correctly and the dbt models worked locally, the pipeline should also succeed. Congratulations!
 
 ## PRATICAL SECTION
 
-The practical section will go through a real-world Airbnb project
+The practical section will go through a real-world Airbnb project.
+
+![workflow](images/workflow.png)  
+
+![data-model](images/data-model.png)  
+
+
